@@ -1,0 +1,19 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3">AG-Grid Example</h1>
+    <p>This is an easy example of an ag-grid.  You can move the columns, sort, and search them as well as filtering by value.  On edit they will offer you spell checking abilities.</p>
+    <p><a class="btn btn-primary btn-lg" (click)="showdifferent()" role="button" >Flip Division</a></p>
+  </div>
+</div>
+<h2> 2017 Big Ten {{divFlag}} Standings in an AG-Grid</h2>
+<div id="westgrid" style="width: 100%;">
+    <ag-grid-angular #agGrid style="width: 100%;height: 450px;" class="ag-theme-material"
+    [gridOptions]="gridOptions"
+    [enableSorting]="true"
+    [enableFilter]="true"
+    [enableColResize]="true"
+    [rowData]="gridData"
+    [showToolPanel]="true"
+    [defaultColDef]="defaultColDef">
+    </ag-grid-angular>
+</div>
