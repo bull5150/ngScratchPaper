@@ -4,4 +4,11 @@
 .jumbotron {
     background-image: url("app/media/sitebanner.jpg");
     color: #ccc;
+    margin-left: -25px;
+    margin-right: -25px;
+    margin-top:-35px;
+}
+#appwrapper{
+    margin: 25px;
+    margin-top: 75px;
 }
