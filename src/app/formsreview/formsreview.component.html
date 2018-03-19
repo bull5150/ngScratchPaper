@@ -1,0 +1,81 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3">Forms</h1>
+    <p>Example of a form page in NG5</p>
+    <p>
+      <a class="btn btn-primary btn-lg" style="float: left;" (click)="dataFill()" role="button">Create Data</a>
+    </p>
+    <p>
+      <a class="btn btn-primary btn-lg" style="float: left;" (click)="dataClear()" role="button">Clear Data</a>
+    </p>
+  </div>
+</div>
+<div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="fname">First Name:</label>
+    <div class="col-sm-10">
+      <input id="fname" [(ngModel)]=formData[0].fname placeholder="First Name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="lname">Last Name:</label>
+    <div class="col-sm-10">
+      <input id="lname" [(ngModel)]=formData[0].lname placeholder="Last Name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Email:</label>
+    <div class="col-sm-10">
+      <input id="email" type="email" [(ngModel)]=formData[0].email placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="phone">Phone:</label>
+    <div class="col-sm-10">
+      <input id="phone" type="tel" [(ngModel)]=formData[0].phone placeholder="Phone">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="comments">Comments:</label>
+    <textarea id="comments" style="margin-left: 15px; width: 300px;" class="form-control" rows="5" [(ngModel)]=formData[0].cont_method
+      placeholder="Comments"></textarea>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="gender">Gender:</label>
+    <div class="col-sm-10">
+      <select id="gender" [(ngModel)]=formData[0].gender>
+        <option value="male">Male
+          <option value="female">Female
+            <option value="other">Other
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-10" for="gender">Here are some check boxes:
+      <br/>
+      <label class="checkbox-inline">
+        <input type="checkbox" value="">Option 1</label>
+      <label class="checkbox-inline">
+        <input type="checkbox" value="">Option 2</label>
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-10" for="gender">Here are some Radio buttons:
+      <br/>
+      <label class="radio-inline">
+        <input type="radio" name="optradio">Option 1</label>
+      <label class="radio-inline">
+        <input type="radio" name="optradio">Option 2</label>
+      <label class="radio-inline">
+        <input type="radio" name="optradio">Option 3</label>
+    </label>
+  </div>
+</div>
+<div class="input-group">
+    <input class="form-control" placeholder="yyyy-mm-dd"
+           name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+        <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+      </button>
+    </div>
