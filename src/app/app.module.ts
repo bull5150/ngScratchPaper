@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { AgGridModule } from 'ag-grid-angular/main';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -28,6 +29,7 @@ import { FormsreviewComponent } from './formsreview/formsreview.component';
   imports: [
     routing,
     BrowserModule,
+    Angular2FontawesomeModule,
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyC5yDYGGb2IWb74lt6cyPVqTKcDSqajKKY'
