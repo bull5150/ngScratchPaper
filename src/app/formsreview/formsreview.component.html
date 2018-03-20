@@ -11,6 +11,17 @@
   </div>
 </div>
 <div>
+  <div class="input-group">
+    <label class="control-label col-sm-10">Date Picker:</label>
+    <div class="col-sm-3">
+      <input class="form-control" style="float:left;" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button" >
+          <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;" />
+        </button>
+      </div>
+    </div>
+  </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="fname">First Name:</label>
     <div class="col-sm-10">
@@ -71,11 +82,3 @@
     </label>
   </div>
 </div>
-<div class="input-group">
-    <input class="form-control" placeholder="yyyy-mm-dd"
-           name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-    <div class="input-group-append">
-      <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
-        <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
-      </button>
-    </div>
