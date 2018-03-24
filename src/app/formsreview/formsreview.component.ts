@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { form_data } from '../models/form_data';
+import { NgbDate } from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-date';
 
 @Component({
   selector: 'forms',
@@ -9,12 +10,10 @@ import { form_data } from '../models/form_data';
 export class FormsreviewComponent implements OnInit {
 
   public formData: form_data[];
-  public model: Date;
 
   constructor() { 
   
   }
-
   ngOnInit() {
     this.formData = [{
       fname: null,
@@ -22,10 +21,12 @@ export class FormsreviewComponent implements OnInit {
       email: null,
       phone: null,
       cont_method: null,
-      gender: null
+      gender: null,
+      checkbox: null,
+      radiobtn: null,
+      datepick: null
     }]
   }
-
   dataFill(){
     this.formData = [{
       fname: "Frankie",
@@ -33,19 +34,26 @@ export class FormsreviewComponent implements OnInit {
       email: "frankthetank@muniz.com",
       phone: "402-444-4444",
       cont_method: "He drives race cars apparently",
-      gender: "female"
+      gender: "female",
+      checkbox: true,
+      radiobtn: "3",
+      datepick: new NgbDate(1985, 12, 5)
     }]
   }
-
   dataClear(){
-    console.log(this.formData[0].gender)
     this.formData = [{
       fname: null,
       lname: null,
       email: null,
       phone: null,
       cont_method: null,
-      gender: null
+      gender: null,
+      checkbox: null,
+      radiobtn: null,
+      datepick: null
     }]
+  }
+  dayChange(){
+    //can do something after user changes the date
   }
 }

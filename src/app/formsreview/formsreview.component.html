@@ -14,7 +14,7 @@
   <div class="input-group">
     <label class="control-label col-sm-10">Date Picker:</label>
     <div class="col-sm-3">
-      <input class="form-control" style="float:left;" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+      <input class="form-control" style="float:left;" placeholder="yyyy-mm-dd" name="dp" (ngModelChange)="dayChange()" [(ngModel)]="formData[0].datepick" ngbDatepicker #d="ngbDatepicker">
       <div class="input-group-append">
         <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button" >
           <i class="fa fa-american-sign-language-interpreting fa-1.2x" aria-hidden="true"> </i>
@@ -22,28 +22,29 @@
       </div>
     </div>
   </div>
+  <br/>
   <div class="form-group">
     <label class="control-label col-sm-2" for="fname">First Name:</label>
-    <div class="col-sm-10">
-      <input id="fname" [(ngModel)]=formData[0].fname placeholder="First Name">
+    <div class="col-sm-3">
+      <input class="form-control" id="fname" [(ngModel)]=formData[0].fname placeholder="First Name">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="lname">Last Name:</label>
-    <div class="col-sm-10">
-      <input id="lname" [(ngModel)]=formData[0].lname placeholder="Last Name">
+    <div class="col-sm-3">
+      <input class="form-control" id="lname" [(ngModel)]=formData[0].lname placeholder="Last Name">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="email">Email:</label>
-    <div class="col-sm-10">
-      <input id="email" type="email" [(ngModel)]=formData[0].email placeholder="Email">
+    <div class="col-sm-3">
+      <input class="form-control" id="email" type="email" [(ngModel)]=formData[0].email placeholder="Email">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="phone">Phone:</label>
-    <div class="col-sm-10">
-      <input id="phone" type="tel" [(ngModel)]=formData[0].phone placeholder="Phone">
+    <div class="col-sm-3">
+      <input class="form-control" id="phone" type="tel" [(ngModel)]=formData[0].phone placeholder="Phone">
     </div>
   </div>
   <div class="form-group">
@@ -53,8 +54,8 @@
   </div>
   <div class="form-group">
     <label class="control-label col-sm-2" for="gender">Gender:</label>
-    <div class="col-sm-10">
-      <select id="gender" [(ngModel)]=formData[0].gender>
+    <div class="col-sm-3">
+      <select class="custom-select" id="gender" [(ngModel)]=formData[0].gender>
         <option value="male">Male
           <option value="female">Female
             <option value="other">Other
@@ -62,23 +63,23 @@
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-sm-10" for="gender">Here are some check boxes:
+    <label class="control-label col-sm-10">Here are some check boxes:
       <br/>
       <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 1</label>
+        <input type="checkbox" [ngModel]="formData[0].checkbox">Option 1</label>
       <label class="checkbox-inline">
-        <input type="checkbox" value="">Option 2</label>
+        <input type="checkbox" value="2">Option 2</label>
     </label>
   </div>
   <div class="form-group">
-    <label class="control-label col-sm-10" for="gender">Here are some Radio buttons:
+    <label class="control-label col-sm-10">Here are some Radio buttons:
       <br/>
       <label class="radio-inline">
-        <input type="radio" name="optradio">Option 1</label>
+        <input type="radio" name="optradio" value="1" [ngModel]="formData[0].radiobtn">Option 1</label>
       <label class="radio-inline">
-        <input type="radio" name="optradio">Option 2</label>
+        <input type="radio" name="optradio" value="2" [ngModel]="formData[0].radiobtn">Option 2</label>
       <label class="radio-inline">
-        <input type="radio" name="optradio">Option 3</label>
+        <input type="radio" name="optradio" value="3" [ngModel]="formData[0].radiobtn">Option 3</label>
     </label>
   </div>
 </div>

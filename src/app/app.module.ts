@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { AggridComponent } from './aggrid/aggrid.component';
 import { AggridredComponent } from './aggridred/aggridred.component';
 import { FormsreviewComponent } from './formsreview/formsreview.component';
+import { AggridgreenComponent } from './aggridgreen/aggridgreen.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FormsreviewComponent } from './formsreview/formsreview.component';
     HomeComponent,
     AggridComponent,
     AggridredComponent,
-    FormsreviewComponent
+    FormsreviewComponent,
+    AggridgreenComponent
   ],
   imports: [
     routing,
@@ -35,7 +37,7 @@ import { FormsreviewComponent } from './formsreview/formsreview.component';
       apiKey: 'AIzaSyC5yDYGGb2IWb74lt6cyPVqTKcDSqajKKY'
     }),
     AgGridModule.withComponents(
-      [AggridredComponent]
+      [AggridgreenComponent, AggridredComponent]
     ),
     NgbModule.forRoot()
   ],

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GridOptions} from 'ag-grid';
 import { AggridredComponent } from '../aggridred/aggridred.component';
+import { AggridgreenComponent } from '../aggridgreen/aggridgreen.component';
 import { football_teams } from '../models/football_teams';
 
 @Component({
@@ -41,13 +42,14 @@ export class AggridComponent implements OnInit {
             {
                 headerName: "Wins",
                 field: "win",
-                width: 100
+                width: 100,
+                cellRendererFramework: AggridgreenComponent,
             },
             {
                 headerName: "Losses",
                 field: "loss",
                 width: 100,
-              cellRendererFramework: AggridredComponent,
+                cellRendererFramework: AggridredComponent,
             },
         ];
         this.defaultColDef = {editable: true};
