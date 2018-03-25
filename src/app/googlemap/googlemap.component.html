@@ -1,3 +1,16 @@
-<agm-map [latitude]="lat" [longitude]="lng"> 
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+<agm-map 
+  [latitude]="lat" 
+  [longitude]="lng"
+  [zoom] = "zoom"
+  >
+    <agm-marker 
+    *ngFor="let m of markers; let i = index"
+    [latitude]="m.lat"
+    [longitude]="m.lng"
+    [markerDraggable]="m.draggable"
+    [iconUrl]="'assets/media/arbys-logo.png'"
+    >
+    <agm-info-window>Latitude = {{m.lat}} longitude = {{m.lng}}</agm-info-window>
+    </agm-marker>
+    
 </agm-map>

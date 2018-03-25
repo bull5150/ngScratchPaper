@@ -2,7 +2,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 .jumbotron {
-    background-image: url("app/media/sitebanner.jpg");
+    background-image: url("assets/media/sitebanner.jpg");
     color: #ccc;
     margin-left: -25px;
     margin-right: -25px;
