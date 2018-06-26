@@ -21,6 +21,11 @@
       "styles": [
         "../node_modules/ag-grid/dist/styles/ag-grid.css",
         "../node_modules/ag-grid/dist/styles/ag-theme-balham.css",
+        "../node_modules/ammap3/ammap/ammap.js",
+        "../node_modules/ammap3/ammap/maps/js/usa2Low.js",
+        "../node_modules/amcharts3/amcharts/amcharts.js",
+        "../node_modules/amcharts3/amcharts/serial.js",
+        "../node_modules/amcharts3/amcharts/themes/light.js",
         "../node_modules/font-awesome/css/font-awesome.css",
         "styles.css"
       ],
