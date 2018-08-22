@@ -32,7 +32,7 @@ export class AmchartComponent implements OnInit, OnDestroy {
   makeOptions(dataProvider) {
     return {
       'type': 'serial',
-      'theme': 'light',
+      'theme': 'dark',
       'marginTop': 0,
       'marginRight': 80,
       'dataProvider': dataProvider,
@@ -109,7 +109,6 @@ export class AmchartComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     clearInterval(this.clock);
-
     // Cleanup chartdiv2
     if (this.chart2) {
       this.AmCharts.destroyChart(this.chart2);

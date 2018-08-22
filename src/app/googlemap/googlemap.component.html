@@ -1,16 +1,17 @@
-<agm-map 
-  [latitude]="lat" 
-  [longitude]="lng"
-  [zoom] = "zoom"
-  >
-    <agm-marker 
-    *ngFor="let m of markers; let i = index"
-    [latitude]="m.lat"
-    [longitude]="m.lng"
-    [markerDraggable]="m.draggable"
-    [iconUrl]="'assets/media/arbys-logo.png'"
-    >
-    <agm-info-window>Latitude = {{m.lat}} longitude = {{m.lng}}</agm-info-window>
-    </agm-marker>
-</agm-map>
-<p><a class="btn btn-primary btn-lg" (click)="addMarkers()" role="button" >The Meats?</a></p>
+<ngui-map center="Brampton, Canada" 
+          style="width:100%;height:700px;"
+          zoom = 4
+          gestureHandling = "greedy"
+          (mapReady$)="onMapReady($event)">
+  <custom-marker *ngFor="let pos of branchMarkers" [position]="pos">
+    {{pos.title}}
+  </custom-marker>
+</ngui-map>
+<div id="mapmenu">
+  <ul>
+      <li><a class="btn btn-primary btn-l" style="width:47px;" id="traffic_button" (click)="this.setTrafficLayer()" title="Traffic"><i class="fa fa-road fa-inverse"></i></a></li>
+      <li><a class="btn btn-primary btn-l" style="width:47px;" id="weather_button" (click)="this.setNOAAKML()" title="Weather Events"><i class="fa fa-bolt fa-inverse"></i></a></li>
+      <li><a class="btn btn-primary btn-l" style="width:47px;" id="air_button" (click)="setAirQualityKML()" title="Air Quality"><i class="fa fa-cloud fa-inverse"></i></a></li>
+      <li><a class="btn btn-primary btn-l" style="width:47px;" id="air_button" (click)="enableDrawing()" title="Drawing"><i class="fa fa-pencil fa-inverse"></i></a></li>
+  </ul>
+</div>

@@ -24,6 +24,8 @@
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
     "@ng-bootstrap/ng-bootstrap": "^1.0.2",
+    "@ngui/map": "^0.30.3",
+    "@types/googlemaps": "^3.30.11",
     "ag-grid": "^17.0.0",
     "ag-grid-angular": "^17.0.0",
     "amcharts3": "^3.21.13",

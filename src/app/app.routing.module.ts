@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { GooglemapComponent } from './googlemap/googlemap.component';
 import { HomeComponent } from './home/home.component'
 import { AppComponent } from './app.component';
-import {AggridComponent } from './aggrid/aggrid.component';
+import { AggridComponent } from './aggrid/aggrid.component';
 import { FormsreviewComponent } from './formsreview/formsreview.component';
 import { AmchartComponent } from './amchart/amchart.component';
 

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { routing } from './app.routing.module';
 import { FormsModule } from '@angular/forms';
-import { AgmCoreModule } from '@agm/core';
+import { NguiMapModule} from '@ngui/map';
 import { AgGridModule } from 'ag-grid-angular/main';
 import { AmChartsModule } from '@amcharts/amcharts3-angular';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -36,9 +36,7 @@ import { AmchartComponent } from './amchart/amchart.component';
       Angular2FontawesomeModule,
       FormsModule,
       AmChartsModule,
-      AgmCoreModule.forRoot({
-        apiKey: 'AIzaSyC5yDYGGb2IWb74lt6cyPVqTKcDSqajKKY'
-      }),
+      NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=[YOUR API KEY HERE]&libraries=drawing'}),
     AgGridModule.withComponents(
       [AggridgreenComponent, AggridredComponent]
     ),

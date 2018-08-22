@@ -13,89 +13,112 @@ declare var google: any;
 })
 export class GooglemapComponent implements OnInit {
 
-  title: string = 'My first AGM project';
-  zoom: number = 12;
-  lat: number = 41.2632231;
-  lng: number = -96.0524403;
+  public positions = [];
+  public branchMarkers = [];
+  public kmlURL: string;
+  public googleMap: any;
+  public is_traffic: boolean;
+  public is_noaa: boolean;
+  public is_airQ: boolean;
+  public is_drawing: boolean;
+  public trafficLayer: google.maps.TrafficLayer;
+  public noaaKMLLayer: google.maps.KmlLayer;
+  public airKMLLayer: google.maps.KmlLayer;
+  public mapDrawing: google.maps.drawing.DrawingManager;
 
-  markers: marker[] = this.markers;
-  markerCheck = false;
-
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
+    this.is_traffic = false;
+    this.is_noaa = false;
+    this.is_airQ = false;
+    this.is_drawing = false;
   }
 
-  addMarkers() {
-    if (!this.markerCheck){
-      this.markers = [
-        {
-          lat: 41.290318,
-          lng: -96.052452,
-          label: 'A',
-          draggable: false
+  onMapReady(map) {
+    this.googleMap = map
+    this.googleMap
+    
+    console.log('map', map);
+    console.log('markers', map.markers);  // to get all markers as an array 
+    //this.getBranchMarkers(map);
+  }
+
+  getBranchMarkers(map) {
+    const marker = new google.maps.Marker(
+    );
+    marker.setPosition(new google.maps.LatLng(41.260425, -96.082801));
+    marker.setTitle("this happened");
+    marker.setMap(map);
+    this.branchMarkers.push(marker);
+    console.log(this.branchMarkers[0]);
+  }
+  //function for the drawing objects controller, driven off flag is_drawing
+  enableDrawing(){
+    if(this.is_drawing == false)
+    {
+      this.mapDrawing = new google.maps.drawing.DrawingManager({
+        drawingMode: google.maps.drawing.OverlayType.MARKER,
+        drawingControl: true,
+        drawingControlOptions: {
+          position: google.maps.ControlPosition.TOP_CENTER,
         },
-        {
-          lat: 41.217667,
-          lng: -95.990936,
-          label: 'B',
-          draggable: false
-        },
-        {
-          lat: 41.300728,
-          lng: -96.023224,
-          label: 'C',
-          draggable: false
-        },
-        {
-          lat: 41.233837,
-          lng: -96.044960,
-          label: 'D',
-          draggable: false
-        },
-        {
-          lat: 41.292828,
-          lng: -96.125809,
-          label: 'E',
-          draggable: false
-        },
-        {
-          lat: 41.203472,
-          lng: -96.134857,
-          label: 'F',
-          draggable: false
-        },
-        {
-          lat: 41.208477,
-          lng: -96.080696,
-          label: 'G',
-          draggable: false
-        },
-        {
-          lat: 41.261623,
-          lng: -95.897903,
-          label: 'H',
-          draggable: false
-        },
-        {
-          lat: 41.234615,
-          lng: -96.184059,
-          label: 'I',
-          draggable: false
-        },
-        {
-          lat: 41.234056,
-          lng: -96.101227,
-          label: 'I',
-          draggable: false
-        }
-      ]
-      this.markerCheck = true;
+      });
+      google.maps.event.addListener(this.mapDrawing, 'polylinecomplete', function (polyline) {
+        console.log("looks like you made a polyline, congratulations!")
+      })
+      this.mapDrawing.setMap(this.googleMap);
+      this.is_drawing = true;
     }
-    else{
-      this.markers = []
-      this.markerCheck = false;
+    else
+    {
+      this.mapDrawing.setMap(null);
+      this.is_drawing = false;
     }
- 
+  }
+  //function for the NOAA Weather Layer button, driven off flag is_noaa
+  setNOAAKML(){
+    if(this.is_noaa == false)
+    {
+      this.noaaKMLLayer = new google.maps.KmlLayer({
+        url: "http://www.wpc.ncep.noaa.gov/kml/noaa_chart/WPC_Day1_SigWx.kml",
+        map: this.googleMap,
+      });
+      this.is_noaa = true;
+    }
+    else
+    {
+      this.noaaKMLLayer.setMap(null);
+      this.is_noaa = false;
+    }
+  }
+  //function for the Air Now Layer button, driven off flag is_airQ
+  setAirQualityKML(){
+    if(this.is_airQ == false)
+    {
+      this.airKMLLayer = new google.maps.KmlLayer({
+        url: "http://files.airnowtech.org/airnow/today/airnow_conditions.kml",
+        map: this.googleMap,
+      });
+      this.is_airQ = true;
+    }
+    else
+    {
+      this.airKMLLayer.setMap(null);
+      this.is_airQ = false;
+    }
+  }
+  //function for the traffic layer button, driven off flag is_traffic
+  setTrafficLayer(){
+    if (this.is_traffic == false)
+    {
+      this.trafficLayer = new google.maps.TrafficLayer({map: this.googleMap});
+      this.is_traffic = true;
+    }
+    else
+    {
+      this.trafficLayer.setMap(null);
+      this.is_traffic = false;
+    }
   }
 }
