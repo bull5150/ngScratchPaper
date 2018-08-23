@@ -36,7 +36,7 @@ import { AmchartComponent } from './amchart/amchart.component';
       Angular2FontawesomeModule,
       FormsModule,
       AmChartsModule,
-      NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=[YOUR API KEY HERE]&libraries=drawing'}),
+      NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=[YourAPIKeyHere]&libraries=drawing'}),
     AgGridModule.withComponents(
       [AggridgreenComponent, AggridredComponent]
     ),
