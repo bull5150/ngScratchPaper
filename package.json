@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.js",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -28,6 +28,7 @@
     "@types/googlemaps": "^3.30.11",
     "ag-grid": "^17.0.0",
     "ag-grid-angular": "^17.0.0",
+    "agentkeepalive": "^3.5.1",
     "amcharts3": "^3.21.13",
     "ammap3": "^3.21.13",
     "angular2-fontawesome": "^5.2.1",

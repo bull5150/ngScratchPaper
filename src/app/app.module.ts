@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core';
 import { routing } from './app.routing.module';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +17,7 @@ import { AggridredComponent } from './aggridred/aggridred.component';
 import { FormsreviewComponent } from './formsreview/formsreview.component';
 import { AggridgreenComponent } from './aggridgreen/aggridgreen.component';
 import { AmchartComponent } from './amchart/amchart.component';
+import { ApitesterService } from './apitester.service';
 
 
 @NgModule({
@@ -35,6 +37,7 @@ import { AmchartComponent } from './amchart/amchart.component';
       BrowserModule,
       Angular2FontawesomeModule,
       FormsModule,
+      HttpClientModule,
       AmChartsModule,
       NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=[YourAPIKeyHere]&libraries=drawing'}),
     AgGridModule.withComponents(
@@ -42,7 +45,7 @@ import { AmchartComponent } from './amchart/amchart.component';
     ),
     NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [ApitesterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

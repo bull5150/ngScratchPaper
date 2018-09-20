@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApitesterService } from '../apitester.service';
+import { hellolist } from '../hellotest';
+
 
 @Component({
   selector: 'home',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public hellodata: hellolist[];
+  public apiValue: string;
+
+  constructor(private ApitesterService: ApitesterService) { }
 
   ngOnInit() {
+    this.ApitesterService.getHello().subscribe(response=>{
+      this.apiValue = response[0].testtwo
+    })
   }
-
 }
