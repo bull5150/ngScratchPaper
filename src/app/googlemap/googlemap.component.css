@@ -1,3 +1,8 @@
+#mapmenu {
+    float: left;
+    margin-right: -35px;
+    margin-top: -7px;
+}
 #mapmenu ul{
     list-style-type: none;
     display: inline;
@@ -6,4 +11,23 @@
 #mapmenu li{
     float:left;
     margin-right: 5px;
+}
+#searchfield{
+    float: right;
+    width: 350px;
+    margin-bottom: 0px;
+    margin-top: -2px;
+}
+#searchbutton{
+    float: right;
+    margin-left: 3px;
+    margin-top: -5px;
+    color: #fff;
+}
+#oldtimeradio input{
+    margin-left: 25px;
+}
+#info_details{
+    border-radius: .2em;
+    margin-top: 75px;
 }

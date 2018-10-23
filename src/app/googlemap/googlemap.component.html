@@ -1,8 +1,17 @@
-<ngui-map center="Brampton, Canada" 
-          style="width:100%;height:700px;"
+<div id="oldtimeradio" class="form-group">
+  <label class="radio-inline">
+      <input type="radio" name="optradio" [value]="1" [ngModel]="radioData" (click)="setStyle(1)">Silver</label>
+  <label class="radio-inline">
+      <input type="radio" name="optradio" [value]="2" [ngModel]="radioData" (click)="setStyle(2)">Night</label>
+  <label class="radio-inline">
+          <input type="radio" name="optradio" [value]="3" [ngModel]="radioData" (click)="setStyle(3)">Normal</label>
+</div>
+<ngui-map center="Omaha, Nebraska" 
+          style="width:100%;height:700px;margin-bottom:15px;"
           zoom = 4
           gestureHandling = "greedy"
-          (mapReady$)="onMapReady($event)">
+          (mapReady$)="onMapReady($event)"
+          >
 </ngui-map>
 <div id="mapmenu">
   <ul>
@@ -14,3 +23,10 @@
       <li><a class="btn btn-primary btn-l" style="width:47px;" id="air_button" (click)="enableDrawing()" title="Drawing"><i class="fa fa-pencil fa-inverse"></i></a></li>
   </ul>
 </div>
+<div id="searchbutton">
+  <a class="btn btn-primary btn-l" (click)="findSearch()">Submit</a>
+</div>
+<div id="searchfield">
+  <input class="btn btn-primary btn-l" placeholder="Search Here...." id="searchfield" [(ngModel)]="this.searchValue" (keydown.enter)="findSearch()"/>
+</div>
+<div id="info_details" [innerHTML]="info_details"></div>
